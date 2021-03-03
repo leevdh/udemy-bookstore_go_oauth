@@ -1,4 +1,4 @@
-module github.com/leevdh/udemy-bookstore_go_auth
+module github.com/leevdh/udemy-bookstore_go_oauth
 
 go 1.16
 
