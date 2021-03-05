@@ -110,8 +110,7 @@ func getAccessToken(at string) (*accessToken, rest_errors.RestErr) {
 	}
 
 	if response.StatusCode > 299 {
-		var restErr rest_errors.RestErr
-		err := json.Unmarshal(response.Bytes(), &restErr)
+		restErr, err := rest_errors.NewRestErrorFromBytes(response.Bytes())
 		if err != nil {
 			return nil, rest_errors.NewInternalServiceError("invalid error interface when trying to get access token", err)
 		}
